@@ -14,7 +14,6 @@ chrome.runtime.onMessage.addListener((message) => {
       linkElement.textContent = link.text;
       linkElement.target = '_blank';
       
-      // Add click handler for summarization
       linkElement.addEventListener('click', async (e) => {
         e.preventDefault();
         isLoading = true;

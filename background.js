@@ -1,8 +1,8 @@
-const API_KEY = 'AIzaSyD7CDgwyBqwkcAIt5Nu4gAXB24zojonke8'; // Replace with your Gemini API key
+import { API_KEY } from './config.js';
+
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent`;
 
-// Handle content summarization
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request) => {
   if (request.type === 'summarize') {
     generateSummary(request.content)
       .then(summary => {
@@ -11,9 +11,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           url: request.url,
           summary: summary
         });
-      })
-      .catch(error => {
-        console.error('Summary error:', error);SS
       });
     return true;
   }
@@ -34,7 +31,6 @@ async function generateSummary(content) {
         }]
       })
     });
-
     const data = await response.json();
     return data.candidates[0].content.parts[0].text;
   } catch (error) {

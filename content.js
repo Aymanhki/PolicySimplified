@@ -29,11 +29,9 @@ const POLICY_KEYWORDS = [
     });
   }
   
-  // Initial scan
   findPolicyLinks();
   
-  // Optional: Rescan when page changes
-  const observer = new MutationObserver(funpolicySimplified);
+  const observer = new MutationObserver(findPolicyLinks);
   observer.observe(document.body, {
     childList: true,
     subtree: true
