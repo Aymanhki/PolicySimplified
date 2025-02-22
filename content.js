@@ -1,38 +1,21 @@
-const POLICY_KEYWORDS = [
-    'privacy policy', 'terms of service', 
-    'terms and conditions', 'legal', 'cookie policy'
-  ];
-  
-  function findPolicyLinks() {
-    const links = Array.from(document.querySelectorAll('a'));
-    const matches = [];
-  
-    links.forEach(link => {
-      const href = link.href.toLowerCase();
-      const text = link.textContent.toLowerCase();
-      
-      const isPolicyLink = POLICY_KEYWORDS.some(keyword => 
-        href.includes(keyword) || text.includes(keyword)
-      );
-  
-      if (isPolicyLink) {
-        matches.push({
-          text: link.textContent.trim(),
-          url: link.href
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === "extract") {
+        let text = "";
+        
+        // Extract relevant text from paragraphs or divs containing "privacy" or "terms"
+        let elements = document.body.querySelectorAll("p, div");
+        elements.forEach(el => {
+            if (el.innerText.toLowerCase().includes("privacy") || el.innerText.toLowerCase().includes("terms")) {
+                text += el.innerText + "\n";
+            }
         });
-      }
-    });
-  
-    chrome.runtime.sendMessage({
-      type: "policyLinks",
-      data: matches
-    });
-  }
-  
-  findPolicyLinks();
-  
-  const observer = new MutationObserver(findPolicyLinks);
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
+        
+        // If no relevant text is found, send a default message
+        if (!text) {
+            text = "No relevant content found.";
+        }
+
+        // Send the extracted text back as a response
+        sendResponse({ data: text });
+    }
+});
