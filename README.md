@@ -37,6 +37,10 @@ git clone https://github.com/Aymanhki/PolicySimplified.git
 3. Click the "Summarize" button
 4. Review the simplified key points presented to you
 
+## Important Note: Avoid Using VPNs
+
+The Gemini API does not respond correctly when accessed through a VPN. To ensure proper functionality of the extension, please disable any VPN services while using Privacy Simplified. Using a VPN may cause issues with the AI summarization process and result in errors or incomplete summaries.
+
 ## Technical Details
 
 ### Technology Stack
