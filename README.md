@@ -53,9 +53,8 @@ git clone https://github.com/Aymanhki/PolicySimplified.git
 - `content.js`: Webpage content extraction logic
 
 ### API Integration
-The extension uses Google's Gemini 1.5 Flash model for AI-powered summarization. You'll need to:
-1. Get your own Gemini API key
-2. Replace the placeholder API key in `background.js`
+
+This extension uses Google's Gemini 1.5 Flash model for AI-powered summarization. The API key is **already hardcoded** into the extension, so you **do not need to obtain your own API key**. Simply install the extension, and it will work seamlessly.
 
 ## Privacy Considerations
 

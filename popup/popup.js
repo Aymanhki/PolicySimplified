@@ -1,5 +1,5 @@
-// Hardcoding the API key directly
-const apiKey = "AIzaSyD-SmrhAxhxCI82hmmr2DfdniD2AEf9Wzw";  // Make sure this key is correct and not shared
+
+const apiKey = "AIzaSyD-SmrhAxhxCI82hmmr2DfdniD2AEf9Wzw"; 
 
 document.getElementById("summarize").addEventListener("click", async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
