@@ -8,7 +8,7 @@ Privacy Simplified is a Chrome extension that helps users understand privacy pol
 
 - 🔍 Automatic detection of privacy policy and terms of service content
 - 📝 AI-powered summarization using Google's Gemini 1.5 Flash model
-- 🎯 User-focused summaries that replace "user" with "you" for better understanding
+- 🎯 Provides concise and easy-to-understand summaries for better comprehension
 - 📌 Bulleted key points for easy reading
 - 💨 Fast and lightweight with a clean, modern interface
 
