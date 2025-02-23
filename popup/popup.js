@@ -1,5 +1,5 @@
 
-const apiKey = "AIzaSyD-SmrhAxhxCI82hmmr2DfdniD2AEf9Wzw";  
+const apiKey = ""; //Removing API key until I get a fix.
 
 document.getElementById("summarize").addEventListener("click", async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
